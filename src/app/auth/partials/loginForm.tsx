@@ -20,12 +20,15 @@ import {
 import { Eye, EyeOff } from 'lucide-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
+import { useLogin } from '@/services/hooks/auth';
+import { Spinner } from '@/components/ui/spinner';
 
 type LoginFormProps = {
   toggleForm: () => void;
 };
 export const LoginForm = ({ toggleForm }: LoginFormProps) => {
   const [showPassword, setShowPassword] = React.useState(false);
+  const { mutate, isPending } = useLogin();
 
   const loginForm = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -36,20 +39,24 @@ export const LoginForm = ({ toggleForm }: LoginFormProps) => {
   });
 
   function onSubmit(data: z.infer<typeof loginSchema>) {
-    toast('You submitted the following values:', {
-      description: (
-        <pre className='bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4'>
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-      position: 'bottom-right',
-      classNames: {
-        content: 'flex flex-col gap-2',
-      },
-      style: {
-        '--border-radius': 'calc(var(--radius)  + 4px)',
-      } as React.CSSProperties,
+    mutate({
+      email: data.email,
+      password: data.password,
     });
+    // toast('You submitted the following values:', {
+    //   description: (
+    //     <pre className='bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4'>
+    //       <code>{JSON.stringify(data, null, 2)}</code>
+    //     </pre>
+    //   ),
+    //   position: 'bottom-right',
+    //   classNames: {
+    //     content: 'flex flex-col gap-2',
+    //   },
+    //   style: {
+    //     '--border-radius': 'calc(var(--radius)  + 4px)',
+    //   } as React.CSSProperties,
+    // });
   }
 
   return (
@@ -117,8 +124,8 @@ export const LoginForm = ({ toggleForm }: LoginFormProps) => {
           )}
         />
       </FieldGroup>
-      <Button type='submit' form='form-login'>
-        Submit
+      <Button type='submit' form='form-login' disabled={isPending}>
+        {isPending ? <Spinner /> : 'Submit'}
       </Button>
       <p className='sm:text-md text-center text-sm font-semibold tracking-[0.02rem] text-neutral-950'>
         Don&apos;t have an account?{' '}

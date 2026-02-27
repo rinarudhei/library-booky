@@ -6,7 +6,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 
 export const Auth = () => {
-  const [isLoginPage, setIsLoginPage] = React.useState(false);
+  const [isLoginPage, setIsLoginPage] = React.useState(true);
 
   const toggleForm = () => {
     setIsLoginPage((prev) => !prev);

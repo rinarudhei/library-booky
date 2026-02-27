@@ -12,13 +12,13 @@ import {
   InputGroupInput,
   InputGroupAddon,
 } from '@/components/ui/input-group';
-import { loginSchema } from '@/schemas/loginSchema';
+import { Spinner } from '@/components/ui/spinner';
 import { registerSchema } from '@/schemas/registerSchema';
+import { useRegister } from '@/services/hooks/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff } from 'lucide-react';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { toast } from 'sonner';
 import z from 'zod';
 
 type RegisterFormProps = {
@@ -26,6 +26,7 @@ type RegisterFormProps = {
 };
 export const RegisterForm = ({ toggleForm }: RegisterFormProps) => {
   const [showPassword, setShowPassword] = React.useState(false);
+  const { mutate, isPending } = useRegister(toggleForm);
 
   const registerForm = useForm<z.infer<typeof registerSchema>>({
     resolver: zodResolver(registerSchema),
@@ -38,21 +39,27 @@ export const RegisterForm = ({ toggleForm }: RegisterFormProps) => {
     },
   });
 
-  function onSubmit(data: z.infer<typeof loginSchema>) {
-    toast('You submitted the following values:', {
-      description: (
-        <pre className='bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4'>
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-      position: 'bottom-right',
-      classNames: {
-        content: 'flex flex-col gap-2',
-      },
-      style: {
-        '--border-radius': 'calc(var(--radius)  + 4px)',
-      } as React.CSSProperties,
+  function onSubmit(data: z.infer<typeof registerSchema>) {
+    mutate({
+      name: data.name,
+      email: data.email,
+      phone: data.phoneNumber,
+      password: data.password,
     });
+    // toast('You submitted the following values:', {
+    //   description: (
+    //     <pre className='bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4'>
+    //       <code>{JSON.stringify(data, null, 2)}</code>
+    //     </pre>
+    //   ),
+    //   position: 'bottom-right',
+    //   classNames: {
+    //     content: 'flex flex-col gap-2',
+    //   },
+    //   style: {
+    //     '--border-radius': 'calc(var(--radius)  + 4px)',
+    //   } as React.CSSProperties,
+    // });
   }
 
   return (
@@ -198,8 +205,13 @@ export const RegisterForm = ({ toggleForm }: RegisterFormProps) => {
           )}
         />
       </FieldGroup>
-      <Button type='submit' form='form-register' className='w-full'>
-        Submit
+      <Button
+        type='submit'
+        form='form-register'
+        className='w-full'
+        disabled={isPending}
+      >
+        {isPending ? <Spinner /> : 'Submit'}
       </Button>
       <p className='sm:text-md text-center text-sm font-semibold tracking-[0.02rem] text-neutral-950'>
         Already have an account?{' '}
