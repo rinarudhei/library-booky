@@ -95,7 +95,7 @@ export const LoginForm = ({ toggleForm }: LoginFormProps) => {
                   id='form-login-password'
                   type={showPassword ? 'text' : 'password'}
                   placeholder=''
-                  className='min-h-24 resize-none'
+                  className='h-12'
                   aria-invalid={fieldState.invalid}
                 />
                 <InputGroupAddon align={'inline-end'}>

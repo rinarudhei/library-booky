@@ -4,6 +4,7 @@ import { LoginForm } from './loginForm';
 import { RegisterForm } from './registerForm';
 import Image from 'next/image';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 export const Auth = () => {
   const [isLoginPage, setIsLoginPage] = React.useState(true);
@@ -19,7 +20,10 @@ export const Auth = () => {
         'max-w-100'
       )}
     >
-      <div className='flex-start flex items-center gap-3'>
+      <Link
+        href='/'
+        className='flex-start flex w-fit cursor-pointer items-center gap-3'
+      >
         <div>
           <Image
             src='/icons/Booky.svg'
@@ -32,7 +36,7 @@ export const Auth = () => {
         <h1 className='text-[25px] leading-8.25 font-bold text-neutral-950'>
           Booky
         </h1>
-      </div>
+      </Link>
       <div className='flex-start flex-col items-center gap-0.5 sm:gap-2'>
         <h2 className='text-display-xs sm:text-display-sm font-bold text-neutral-950 sm:-tracking-[0.02rem]'>
           {isLoginPage ? 'Login' : 'Register'}
