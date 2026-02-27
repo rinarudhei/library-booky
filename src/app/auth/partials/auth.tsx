@@ -5,9 +5,12 @@ import { RegisterForm } from './registerForm';
 import Image from 'next/image';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 export const Auth = () => {
-  const [isLoginPage, setIsLoginPage] = React.useState(true);
+  const params = useSearchParams();
+  const isRegister = params.get('register');
+  const [isLoginPage, setIsLoginPage] = React.useState(!isRegister);
 
   const toggleForm = () => {
     setIsLoginPage((prev) => !prev);
