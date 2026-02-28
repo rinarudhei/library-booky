@@ -9,11 +9,11 @@ type CategoryCardProps = {
 
 export const CategoryCard = ({ image, name, alt }: CategoryCardProps) => {
   return (
-    <Card className='flex flex-col items-center justify-start gap-3 overflow-x-hidden rounded-xl bg-white p-2 shadow-sm'>
-      <div className='flex-center gap-[5.6px] rounded-[10.5px] bg-[#e0ecff] px-[25.7px] py-[5.6px]'>
-        <Image src={image} alt={alt} width={44.8} height={44.8} />
+    <Card className='flex flex-col items-center justify-start gap-3 overflow-x-hidden rounded-xl bg-white p-2 shadow-sm sm:gap-3 sm:rounded-2xl sm:p-3'>
+      <div className='flex-center gap-[5.6px] rounded-[10.5px] bg-[#e0ecff] px-[25.7px] py-[5.6px] sm:gap-[6.4px] sm:px-[55.7px] sm:py-[6.4px]'>
+        <Image src={image} alt={alt} width={51.2} height={51.2} />
       </div>
-      <h3 className='w-full max-w-24 text-start text-xs font-semibold tracking-normal text-neutral-950'>
+      <h3 className='sm:text-md w-full max-w-24 text-start text-xs font-semibold tracking-normal text-neutral-950 sm:-tracking-[0.02rem]'>
         {name}
       </h3>
     </Card>

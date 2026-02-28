@@ -10,7 +10,7 @@ export const PopularAuthorList = () => {
     limit: 4,
   });
   return (
-    <div className='flex-center flex-col'>
+    <div className='flex-center flex-col sm:items-start'>
       {isError ? (
         <ErrorMessage
           errorMessage={error ? error.message : 'Error getting author list'}
@@ -18,7 +18,7 @@ export const PopularAuthorList = () => {
       ) : isPending ? (
         <Spinner />
       ) : (
-        <div className='flex w-full flex-col justify-between gap-4'>
+        <div className='grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center sm:gap-5 lg:grid-cols-4'>
           {data.authors.map((a) => (
             <PopularAuthorCard
               key={a.id}

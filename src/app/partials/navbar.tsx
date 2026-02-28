@@ -70,7 +70,7 @@ export const Navbar = () => {
     <div className='flex-center fixed top-0 z-50 w-screen shadow-[0px_0px_20px_0px_#CBCACA40]'>
       <nav
         className={clsx(
-          'flex h-16 w-full max-w-360 flex-row items-center justify-between bg-white px-4 sm:h-20 sm:px-12 lg:px-20 xl:px-30',
+          'flex h-16 w-full max-w-360 flex-row items-center justify-between bg-white px-4 sm:h-20 sm:px-12 lg:px-30',
           openSearchField && 'gap-4'
         )}
       >
@@ -187,7 +187,7 @@ export const Navbar = () => {
             {isLoggedIn ? (
               <DropdownMenu>
                 <DropdownMenuTrigger className='flex-center gap-4'>
-                  <Avatar>
+                  <Avatar size='default'>
                     <AvatarImage
                       src={user.profilePhoto}
                       alt='User Profile Picture'

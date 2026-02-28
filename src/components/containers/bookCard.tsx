@@ -14,14 +14,14 @@ type BookCardProps = {
 
 export const BookCard = ({ image, title, author, star }: BookCardProps) => {
   return (
-    <Card className='m-0 max-w-43 gap-0 p-0'>
-      <div className='h-64.5 max-w-43 rounded-t-xl'>
+    <Card className='m-0 max-w-43 gap-0 p-0 sm:max-w-56'>
+      <div className='h-64.5 rounded-t-xl xl:h-84'>
         <Image
           src={image}
           alt={title + ' book poster image'}
           width={172}
           height={258}
-          className='h-full rounded-t-xl object-cover'
+          className='h-full rounded-t-xl object-cover sm:w-full'
         />
       </div>
       <div className='flex flex-col items-start justify-center gap-0.5 rounded-b-xl p-3'>
