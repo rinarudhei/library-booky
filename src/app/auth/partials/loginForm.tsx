@@ -127,10 +127,10 @@ export const LoginForm = ({ toggleForm }: LoginFormProps) => {
       <Button type='submit' form='form-login' disabled={isPending}>
         {isPending ? <Spinner /> : 'Submit'}
       </Button>
-      <p className='sm:text-md text-center text-sm font-semibold tracking-[0.02rem] text-neutral-950'>
+      <p className='sm:text-md text-center text-sm font-semibold -tracking-[0.02rem] text-neutral-950'>
         Don&apos;t have an account?{' '}
         <span
-          className='text-primary-300 cursor-pointer font-bold tracking-[0.02rem]'
+          className='text-primary-300 cursor-pointer font-bold -tracking-[0.02rem]'
           onClick={toggleForm}
         >
           Register

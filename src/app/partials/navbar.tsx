@@ -67,7 +67,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className='flex-center fixed top-0 w-screen shadow-[0px_0px_20px_0px_#CBCACA40]'>
+    <div className='flex-center fixed top-0 z-50 w-screen shadow-[0px_0px_20px_0px_#CBCACA40]'>
       <nav
         className={clsx(
           'flex h-16 w-full max-w-360 flex-row items-center justify-between bg-white px-4 sm:h-20 sm:px-12 lg:px-20 xl:px-30',
@@ -129,7 +129,7 @@ export const Navbar = () => {
               <InputGroupInput
                 value={searchText}
                 placeholder='Search book'
-                className='w-full text-start text-sm font-medium tracking-[0.03rem] text-neutral-950 placeholder:text-neutral-600'
+                className='w-full text-start text-sm font-medium -tracking-[0.03rem] text-neutral-950 placeholder:text-neutral-600'
                 onChange={(e) => setSearchText(e.target.value)}
               />
               <InputGroupAddon align={'inline-start'}>
@@ -189,10 +189,10 @@ export const Navbar = () => {
                 <DropdownMenuTrigger className='flex-center gap-4'>
                   <Avatar>
                     <AvatarImage
-                      src='https://github.com/shadcn.png'
-                      alt='shadcn avatar png'
-                      width={10}
-                      height={10}
+                      src={user.profilePhoto}
+                      alt='User Profile Picture'
+                      width={40}
+                      height={40}
                       className='object-contain'
                     />
                     <AvatarFallback>
@@ -201,7 +201,7 @@ export const Navbar = () => {
                   </Avatar>
                   {isLargeIsh && (
                     <>
-                      <p className='text-lg font-semibold tracking-[0.02rem] text-neutral-950'>
+                      <p className='text-lg font-semibold -tracking-[0.02rem] text-neutral-950'>
                         {user.name}
                       </p>
                       <ChevronDown size={24} />
