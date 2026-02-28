@@ -67,202 +67,206 @@ export const Navbar = () => {
   };
 
   return (
-    <nav
-      className={clsx(
-        'fixed top-0 flex h-16 w-full max-w-360 flex-row items-center justify-between bg-white px-4 sm:h-20 sm:px-12 lg:px-20 xl:px-30',
-        openSearchField && 'gap-4'
-      )}
-    >
-      <Link href='/' className='flex-center gap-3.75'>
-        <div className='flex-center h-10 w-10 sm:h-10.5 sm:w-10.5'>
-          <Image
-            src='/icons/Booky.svg'
-            alt='Booky app Icon SVG'
-            width={42}
-            height={42}
-            loading='eager'
-          />
-        </div>
-        {isLargeIsh && (
-          <h1 className='text-display-md font-bold text-neutral-950'>Booky</h1>
+    <div className='flex-center fixed top-0 w-screen shadow-[0px_0px_20px_0px_#CBCACA40]'>
+      <nav
+        className={clsx(
+          'flex h-16 w-full max-w-360 flex-row items-center justify-between bg-white px-4 sm:h-20 sm:px-12 lg:px-20 xl:px-30',
+          openSearchField && 'gap-4'
         )}
-      </Link>
-
-      {/* Login/Register Button*/}
-      {isLargeIsh && isLoggedIn ? (
-        <></>
-      ) : (
-        <div className='sm:flex-center hidden gap-4'>
-          <Button
-            asChild
-            variant={'outline'}
-            size={'default'}
-            className='w-40.75'
-          >
-            <Link href='/auth'>Login</Link>
-          </Button>
-          <Button
-            asChild
-            variant={'default'}
-            size={'default'}
-            className='w-40.75'
-          >
-            <Link href='/auth/?register=true'>Register</Link>
-          </Button>
-        </div>
-      )}
-
-      {/* Search input field */}
-      {isLargeIsh && !isLoggedIn ? (
-        <></>
-      ) : (
-        <>
-          <InputGroup
-            className={clsx(
-              'flex-center h-10 w-full max-w-66.25 gap-1.5 rounded-full border border-neutral-300 shadow-none md:h-11 md:max-w-100 lg:max-w-125',
-              !openSearchField && 'hidden'
-            )}
-          >
-            <InputGroupInput
-              value={searchText}
-              placeholder='Search book'
-              className='w-full text-start text-sm font-medium tracking-[0.03rem] text-neutral-950 placeholder:text-neutral-600'
-              onChange={(e) => setSearchText(e.target.value)}
+      >
+        <Link href='/' className='flex-center gap-3.75'>
+          <div className='flex-center h-10 w-10 sm:h-10.5 sm:w-10.5'>
+            <Image
+              src='/icons/Booky.svg'
+              alt='Booky app Icon SVG'
+              width={42}
+              height={42}
+              loading='eager'
             />
-            <InputGroupAddon align={'inline-start'}>
-              <div className='flex-center h-5 w-5'>
-                <Search size={20} />
-              </div>
-            </InputGroupAddon>
-          </InputGroup>
-          {!isLargeIsh && (
-            <button
+          </div>
+          {isLargeIsh && (
+            <h1 className='text-display-md font-bold text-neutral-950'>
+              Booky
+            </h1>
+          )}
+        </Link>
+
+        {/* Login/Register Button*/}
+        {isLargeIsh && isLoggedIn ? (
+          <></>
+        ) : (
+          <div className='sm:flex-center hidden gap-4'>
+            <Button
+              asChild
+              variant={'outline'}
+              size={'default'}
+              className='w-40.75'
+            >
+              <Link href='/auth'>Login</Link>
+            </Button>
+            <Button
+              asChild
+              variant={'default'}
+              size={'default'}
+              className='w-40.75'
+            >
+              <Link href='/auth/?register=true'>Register</Link>
+            </Button>
+          </div>
+        )}
+
+        {/* Search input field */}
+        {isLargeIsh && !isLoggedIn ? (
+          <></>
+        ) : (
+          <>
+            <InputGroup
               className={clsx(
-                'h-6 w-6 cursor-pointer',
+                'flex-center h-10 w-full max-w-66.25 gap-1.5 rounded-full border border-neutral-300 shadow-none md:h-11 md:max-w-100 lg:max-w-125',
                 !openSearchField && 'hidden'
               )}
-              onClick={handleCloseSearchField}
             >
-              <X width={24} height={24}></X>
-            </button>
-          )}
-        </>
-      )}
-
-      {/* Menus */}
-      {isLargeIsh && !isLoggedIn ? (
-        <></>
-      ) : (
-        <div
-          className={clsx(
-            'flex-center gap-4 lg:gap-6',
-            !isLargeIsh && openSearchField && 'hidden'
-          )}
-        >
-          {isLargeIsh && isLoggedIn ? (
-            <></>
-          ) : (
-            <Search
-              size={24}
-              onClick={() => setOpenSearchField((prev) => !prev)}
-            />
-          )}
-          <div className='flex-center relative h-7 w-7'>
-            <div className=''>
-              <Image
-                width={20}
-                height={20}
-                src='/icons/shopping-bag.svg'
-                alt='shopping bag svg'
-                className='h-auto w-full'
+              <InputGroupInput
+                value={searchText}
+                placeholder='Search book'
+                className='w-full text-start text-sm font-medium tracking-[0.03rem] text-neutral-950 placeholder:text-neutral-600'
+                onChange={(e) => setSearchText(e.target.value)}
               />
-            </div>
-            <Badge className='absolute -top-1 -right-2 h-5 w-5 gap-1.75 bg-[#ee1d52] p-1.75 text-xs'>
-              1
-            </Badge>
-          </div>
-          {isLoggedIn ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger className='flex-center gap-4'>
-                <Avatar>
-                  <AvatarImage
-                    src='https://github.com/shadcn.png'
-                    alt='shadcn avatar png'
-                    width={10}
-                    height={10}
-                    className='object-contain'
-                  />
-                  <AvatarFallback>
-                    {generateAvatarFallback(user.name)}
-                  </AvatarFallback>
-                </Avatar>
-                {isLargeIsh && (
-                  <>
-                    <p className='text-lg font-semibold tracking-[0.02rem] text-neutral-950'>
-                      {user.name}
-                    </p>
-                    <ChevronDown size={24} />
-                  </>
+              <InputGroupAddon align={'inline-start'}>
+                <div className='flex-center h-5 w-5'>
+                  <Search size={20} />
+                </div>
+              </InputGroupAddon>
+            </InputGroup>
+            {!isLargeIsh && (
+              <button
+                className={clsx(
+                  'h-6 w-6 cursor-pointer',
+                  !openSearchField && 'hidden'
                 )}
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuGroup>
-                  <DropdownMenuLabel>Account</DropdownMenuLabel>
-                  <Separator></Separator>
-                </DropdownMenuGroup>
-                <DropdownMenuGroup>
-                  <DropdownMenuItem asChild>
-                    <Link
-                      href='/auth'
-                      className='cursor-pointer hover:font-semibold'
-                      onClick={handleLogout}
-                    >
-                      Logout
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : (
-            <Dialog>
-              <DialogTrigger>
-                <Menu size={24} />
-              </DialogTrigger>
-              <DialogContent>
-                <DialogTitle>
-                  <div className='item-center flex justify-start gap-3'>
-                    <div className='flex-center h-8 w-8'>
-                      <Image
-                        src='/icons/Booky.svg'
-                        alt='Booky app Icon SVG'
-                        width={42}
-                        height={42}
-                        loading='eager'
-                      />
+                onClick={handleCloseSearchField}
+              >
+                <X width={24} height={24}></X>
+              </button>
+            )}
+          </>
+        )}
+
+        {/* Menus */}
+        {isLargeIsh && !isLoggedIn ? (
+          <></>
+        ) : (
+          <div
+            className={clsx(
+              'flex-center gap-4 lg:gap-6',
+              !isLargeIsh && openSearchField && 'hidden'
+            )}
+          >
+            {isLargeIsh && isLoggedIn ? (
+              <></>
+            ) : (
+              <Search
+                size={24}
+                onClick={() => setOpenSearchField((prev) => !prev)}
+              />
+            )}
+            <div className='flex-center relative h-7 w-7'>
+              <div className=''>
+                <Image
+                  width={20}
+                  height={20}
+                  src='/icons/shopping-bag.svg'
+                  alt='shopping bag svg'
+                  className='h-auto w-full'
+                />
+              </div>
+              <Badge className='absolute -top-1 -right-2 h-5 w-5 gap-1.75 bg-[#ee1d52] p-1.75 text-xs'>
+                1
+              </Badge>
+            </div>
+            {isLoggedIn ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger className='flex-center gap-4'>
+                  <Avatar>
+                    <AvatarImage
+                      src='https://github.com/shadcn.png'
+                      alt='shadcn avatar png'
+                      width={10}
+                      height={10}
+                      className='object-contain'
+                    />
+                    <AvatarFallback>
+                      {generateAvatarFallback(user.name)}
+                    </AvatarFallback>
+                  </Avatar>
+                  {isLargeIsh && (
+                    <>
+                      <p className='text-lg font-semibold tracking-[0.02rem] text-neutral-950'>
+                        {user.name}
+                      </p>
+                      <ChevronDown size={24} />
+                    </>
+                  )}
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuGroup>
+                    <DropdownMenuLabel>Account</DropdownMenuLabel>
+                    <Separator></Separator>
+                  </DropdownMenuGroup>
+                  <DropdownMenuGroup>
+                    <DropdownMenuItem asChild>
+                      <Link
+                        href='/auth'
+                        className='cursor-pointer hover:font-semibold'
+                        onClick={handleLogout}
+                      >
+                        Logout
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Dialog>
+                <DialogTrigger>
+                  <Menu size={24} />
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogTitle>
+                    <div className='item-center flex justify-start gap-3'>
+                      <div className='flex-center h-8 w-8'>
+                        <Image
+                          src='/icons/Booky.svg'
+                          alt='Booky app Icon SVG'
+                          width={42}
+                          height={42}
+                          loading='eager'
+                        />
+                      </div>
+                      <h1 className='text-xl font-bold text-neutral-950'>
+                        Booky
+                      </h1>
                     </div>
-                    <h1 className='text-xl font-bold text-neutral-950'>
-                      Booky
-                    </h1>
-                  </div>
-                </DialogTitle>
-                <DialogClose asChild>
-                  <Link href='/auth' className='text-sm font-semibold'>
-                    Login
-                  </Link>
-                </DialogClose>
-                <DialogClose asChild>
-                  <Link
-                    href='/auth/?register=true'
-                    className='text-sm font-semibold'
-                  >
-                    Register
-                  </Link>
-                </DialogClose>
-              </DialogContent>
-            </Dialog>
-          )}
-        </div>
-      )}
-    </nav>
+                  </DialogTitle>
+                  <DialogClose asChild>
+                    <Link href='/auth' className='text-sm font-semibold'>
+                      Login
+                    </Link>
+                  </DialogClose>
+                  <DialogClose asChild>
+                    <Link
+                      href='/auth/?register=true'
+                      className='text-sm font-semibold'
+                    >
+                      Register
+                    </Link>
+                  </DialogClose>
+                </DialogContent>
+              </Dialog>
+            )}
+          </div>
+        )}
+      </nav>
+    </div>
   );
 };

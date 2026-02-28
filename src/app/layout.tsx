@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' data-scroll-behavior='smooth'>
-      <body className={`${quicksand.variable} bg-neutral-300 antialiased`}>
+      <body className={`${quicksand.variable},' antialiased`}>
         <StoreProvider>
           <QueryProvider>
             <Toaster />
