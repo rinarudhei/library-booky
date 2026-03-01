@@ -12,7 +12,7 @@ export const PopularAuthorCard = ({
   bookCount,
 }: PopularAuthorCardProps) => {
   return (
-    <Card className='flex items-center justify-start gap-3 rounded-xl bg-white p-3 shadow-xs hover:bg-neutral-100 sm:max-w-70 sm:gap-4 sm:p-4 xl:max-w-full'>
+    <Card className='flex flex-row items-center justify-start gap-3 rounded-xl bg-white p-3 shadow-xs hover:bg-neutral-100 sm:max-w-70 sm:gap-4 sm:p-4 xl:max-w-full'>
       <Avatar className='size-10 md:size-16 xl:size-20.25'>
         <AvatarFallback className='text-xl font-bold'>
           {generateAvatarFallback(name)}
