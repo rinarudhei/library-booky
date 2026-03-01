@@ -7,7 +7,7 @@ import { PopularAuthorList } from './popularAuthorList';
 
 export const MainContent = () => {
   return (
-    <div className='flex-center flex-col gap-6 px-4 sm:gap-7 md:gap-8 lg:gap-10 xl:gap-12 xl:px-30'>
+    <main className='flex-center flex-col gap-6 px-4 sm:gap-7 md:gap-8 lg:gap-10 xl:gap-12 xl:px-30'>
       {/* Main Banner */}
       <div className='mt-20 flex flex-col items-center justify-between gap-2 sm:mt-32 xl:gap-4'>
         <div className=''>
@@ -55,6 +55,6 @@ export const MainContent = () => {
         </h2>
         <PopularAuthorList />
       </div>
-    </div>
+    </main>
   );
 };

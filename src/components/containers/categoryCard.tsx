@@ -9,7 +9,7 @@ type CategoryCardProps = {
 
 export const CategoryCard = ({ image, name, alt }: CategoryCardProps) => {
   return (
-    <Card className='flex flex-col items-center justify-start gap-3 overflow-x-hidden rounded-xl bg-white p-2 shadow-sm sm:gap-3 sm:rounded-2xl sm:p-3'>
+    <Card className='group flex flex-col items-center justify-start gap-3 overflow-x-hidden rounded-xl bg-white p-2 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-xl sm:gap-3 sm:rounded-2xl sm:p-3'>
       <div className='flex-center gap-[5.6px] rounded-[10.5px] bg-[#e0ecff] px-[25.7px] py-[5.6px] sm:gap-[6.4px] sm:px-[55.7px] sm:py-[6.4px]'>
         <Image src={image} alt={alt} width={51.2} height={51.2} />
       </div>

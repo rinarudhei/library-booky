@@ -170,7 +170,7 @@ export const Navbar = () => {
                 onClick={() => setOpenSearchField((prev) => !prev)}
               />
             )}
-            <div className='flex-center relative h-7 w-7'>
+            <div className='flex-center relative h-7 w-7 cursor-pointer duration-300 hover:scale-125'>
               <div className=''>
                 <Image
                   width={20}
@@ -186,7 +186,7 @@ export const Navbar = () => {
             </div>
             {isLoggedIn ? (
               <DropdownMenu>
-                <DropdownMenuTrigger className='flex-center gap-4'>
+                <DropdownMenuTrigger className='flex-center cursor-pointer gap-4'>
                   <Avatar size='default'>
                     <AvatarImage
                       src={user.profilePhoto}
@@ -208,7 +208,7 @@ export const Navbar = () => {
                     </>
                   )}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent>
+                <DropdownMenuContent align='end'>
                   <DropdownMenuGroup>
                     <DropdownMenuLabel>Account</DropdownMenuLabel>
                     <Separator></Separator>

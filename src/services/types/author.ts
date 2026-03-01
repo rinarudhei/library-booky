@@ -8,4 +8,6 @@ export type Author = {
   bio: string;
   bookCount: number;
   accumulatedScore: number;
+  createdAt: string;
+  updatedAt: string;
 };

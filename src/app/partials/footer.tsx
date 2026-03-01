@@ -1,4 +1,5 @@
 import { socialMediaData } from '@/constant/social-media';
+import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -43,6 +44,13 @@ export const Footer = () => {
                 alt={s.alt}
                 width={s.width}
                 height={s.height}
+                className='block'
+                style={{
+                  width: s.width,
+                  height: s.height,
+                  maxWidth: 'none',
+                  maxHeight: 'none',
+                }}
               />
             </div>
           ))}

@@ -39,6 +39,7 @@ export const RecommendedBookList = () => {
                   .map((book, i) => (
                     <BookCard
                       key={i}
+                      id={book.id}
                       image={book.coverImage}
                       title={book.title}
                       author={book.author}

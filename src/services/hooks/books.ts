@@ -1,10 +1,21 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
 import {
+  keepPreviousData,
+  useInfiniteQuery,
+  useQuery,
+} from '@tanstack/react-query';
+import {
+  GetBookDetailsResponse,
+  GetBooksByQueryParam,
+  GetBooksByQueryParamResponse,
   GetRecommendBooksResponse,
   GetRecommendedBooksParam,
 } from '../types/books';
-import { AxiosError } from 'axios';
-import { getRecommendedBooks } from '../api/books';
+import { Axios, AxiosError } from 'axios';
+import {
+  getBookDetails,
+  getBooksByQuery,
+  getRecommendedBooks,
+} from '../api/books';
 
 export const useInfiniteRecommendedBooks = (
   params: GetRecommendedBooksParam
@@ -19,5 +30,22 @@ export const useInfiniteRecommendedBooks = (
         return responseData.pagination.page + 1;
       else return undefined;
     },
+  });
+};
+export const useGetBookDetails = (data: { id: number }) => {
+  return useQuery<GetBookDetailsResponse, AxiosError>({
+    queryKey: ['book-details', data.id],
+    queryFn: () => getBookDetails(data),
+    staleTime: 10 * 60 * 1000,
+    placeholderData: keepPreviousData,
+  });
+};
+
+export const useGetBooksByQuery = (data: GetBooksByQueryParam) => {
+  return useQuery<GetBooksByQueryParamResponse, AxiosError>({
+    queryKey: ['books', data],
+    queryFn: () => getBooksByQuery(data),
+    staleTime: 10 * 60 * 1000,
+    placeholderData: keepPreviousData,
   });
 };
