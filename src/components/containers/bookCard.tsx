@@ -20,7 +20,7 @@ export const BookCard = ({ image, title, author, star, id }: BookCardProps) => {
     <Card className='group m-0 max-w-43 gap-0 p-0 transition-all duration-300 hover:scale-105 sm:max-w-56'>
       <Link
         href={`/details/${id}`}
-        className='block h-64.5 cursor-pointer rounded-t-xl xl:h-84'
+        className='block h-full cursor-pointer rounded-t-xl'
       >
         <Image
           src={image}

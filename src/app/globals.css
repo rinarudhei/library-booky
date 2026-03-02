@@ -7,13 +7,14 @@
 @theme {
   /* Font Family */
   --font-quicksand: 'Quicksand', sans-serif;
+  --font-nunito: 'Nunito', sans-serif;
 
   /* Font Weights */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
-  --font-weight-extrabold: 700;
+  --font-weight-extrabold: 800;
 
   /* Display 3xl */
   --text-display-3xl: 3.75rem;

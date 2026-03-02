@@ -42,6 +42,9 @@ export const useGetBookDetails = (data: { id: number }) => {
 };
 
 export const useGetBooksByQuery = (data: GetBooksByQueryParam) => {
+  if (!data.categoryId) {
+    delete data.categoryId;
+  }
   return useQuery<GetBooksByQueryParamResponse, AxiosError>({
     queryKey: ['books', data],
     queryFn: () => getBooksByQuery(data),
