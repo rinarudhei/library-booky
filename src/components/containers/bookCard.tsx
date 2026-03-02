@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { Card } from '../ui/card';
-import { Star } from 'lucide-react';
 import Link from 'next/link';
 import { RatingStar } from './ratingStar';
+import clsx from 'clsx';
 
 type BookCardProps = {
   image: string;
@@ -13,11 +13,16 @@ type BookCardProps = {
   };
   star: number;
   id: number;
+  className?: string;
 };
 
 export const BookCard = ({ image, title, author, star, id }: BookCardProps) => {
   return (
-    <Card className='group m-0 max-w-43 gap-0 p-0 transition-all duration-300 hover:scale-105 sm:max-w-56'>
+    <Card
+      className={clsx(
+        'group m-0 max-w-43 gap-0 p-0 transition-all duration-300 hover:scale-105 sm:max-w-56'
+      )}
+    >
       <Link
         href={`/details/${id}`}
         className='block h-full cursor-pointer rounded-t-xl'
@@ -27,7 +32,7 @@ export const BookCard = ({ image, title, author, star, id }: BookCardProps) => {
           alt={title + ' book poster image'}
           width={172}
           height={258}
-          className='h-full rounded-t-xl object-cover transition-transform duration-300 group-hover:scale-102 sm:w-full'
+          className='h-full w-auto rounded-t-xl object-cover transition-transform duration-300 group-hover:scale-102'
         />
       </Link>
       <div className='flex flex-col items-start justify-center gap-0.5 rounded-b-xl p-3 transition-colors duration-300 group-hover:bg-neutral-50'>

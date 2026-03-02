@@ -75,3 +75,20 @@ export type GetBooksByQueryParamResponse = {
   books: Book[];
   pagination: Pagination;
 };
+
+export type BorrowBookParams = {
+  bookId: number;
+  days: number;
+};
+
+export type BorrowBookResponse = {
+  loan: {
+    id: number;
+    userId: number;
+    bookId: number;
+    status: string;
+    borrowedAt: string;
+    dueAt: string;
+    returnedAt: string;
+  };
+};

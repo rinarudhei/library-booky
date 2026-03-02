@@ -2,8 +2,11 @@ import Image from 'next/image';
 import { Separator } from '../ui/separator';
 import { Star } from 'lucide-react';
 import { Button } from '../ui/button';
+import Link from 'next/link';
+import { id } from 'zod/locales';
 
 type BookDetailsCardProps = {
+  id: number;
   coverImage: string;
   category: {
     id: number;
@@ -19,9 +22,11 @@ type BookDetailsCardProps = {
   pagesCount: number;
   reviewsCount: number;
   description: string;
+  availableCopies: number;
 };
 
 export const BookDetailsCard = ({
+  id,
   coverImage,
   category,
   title,
@@ -31,6 +36,7 @@ export const BookDetailsCard = ({
   reviewsCount,
   description,
   ratingCount,
+  availableCopies,
 }: BookDetailsCardProps) => {
   return (
     <div className='flex flex-col items-center gap-9 sm:flex-row'>
@@ -41,6 +47,7 @@ export const BookDetailsCard = ({
           width={212}
           height={318}
           className='h-79.5 object-fill sm:h-120.5 sm:w-80.25'
+          loading='eager'
         />
       </div>
 
@@ -118,8 +125,19 @@ export const BookDetailsCard = ({
           <Button variant='outline' className='w-full max-w-28 lg:max-w-50'>
             Add to Cart
           </Button>
-          <Button variant='default' className='w-full max-w-28 lg:max-w-50'>
-            Borrow Book
+          <Button
+            variant='default'
+            className='w-full max-w-28 lg:max-w-50'
+            disabled={availableCopies <= 0}
+          >
+            <Link
+              href={{
+                pathname: '/checkout',
+                query: { bookId: id.toString() },
+              }}
+            >
+              {availableCopies <= 0 ? 'Not available' : 'Borrow Book'}
+            </Link>
           </Button>
         </div>
       </div>

@@ -8,7 +8,6 @@ export default function Details() {
     <div className='flex-center flex-col'>
       <Navbar />
       <DetailsContent />
-      <FloatingBorrowButton />
       <Footer />
     </div>
   );

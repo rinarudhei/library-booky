@@ -12,6 +12,7 @@ const persistConfig = {
   version: 1,
   timeout: 10000,
   storage: sessionStorage,
+  whiteList: ['auth', 'user'],
 };
 
 const persistedReducer = persistReducer(persistConfig, allreducers);
@@ -19,7 +20,10 @@ export const makeStore = () =>
   configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({ serializableCheck: false }).concat(logger),
+      getDefaultMiddleware({
+        serializableCheck: false,
+        ignoredAction: ['persist/PERSIST', 'persist/REHYDRATE'],
+      }).concat(logger),
   });
 
 export type AppStore = ReturnType<typeof makeStore>;

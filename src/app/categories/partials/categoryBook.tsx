@@ -87,7 +87,6 @@ export const CategoryBook = () => {
                   id={`${c.name}`}
                   name={`${c.name}`}
                   checked={filterCategory === `${c.name}`}
-                  className='data-[state=checked]:bg-primary-300 data-[state=checked]:border-none'
                   onCheckedChange={(checked) =>
                     handleCheckbox(checked, `${c.name}`, setFilterCategory)
                   }
@@ -112,7 +111,6 @@ export const CategoryBook = () => {
                     id={`${i + 1}`}
                     name={`${i + 1}`}
                     checked={filterRatings === `${i + 1}`}
-                    className='data-[state=checked]:bg-primary-300 data-[state=checked]:border-none'
                     onCheckedChange={(checked) =>
                       handleCheckbox(checked, `${i + 1}`, setFilterRatings)
                     }
@@ -147,7 +145,6 @@ export const CategoryBook = () => {
                 id={`${c.name}`}
                 name={`${c.name}`}
                 checked={filterCategory === `${c.name}`}
-                className='data-[state=checked]:bg-primary-300 data-[state=checked]:border-none'
                 onCheckedChange={(checked) =>
                   handleCheckbox(checked, `${c.name}`, setFilterCategory)
                 }
@@ -172,7 +169,6 @@ export const CategoryBook = () => {
                   id={`${i + 1}`}
                   name={`${i + 1}`}
                   checked={filterRatings === `${i + 1}`}
-                  className='data-[state=checked]:bg-primary-300 data-[state=checked]:border-none'
                   onCheckedChange={(checked) =>
                     handleCheckbox(checked, `${i + 1}`, setFilterRatings)
                   }

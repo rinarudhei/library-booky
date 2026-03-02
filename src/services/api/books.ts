@@ -1,5 +1,8 @@
+import clsx from 'clsx';
 import { ApiResponse } from '../types/api';
 import {
+  BorrowBookParams,
+  BorrowBookResponse,
   GetBookDetailsResponse,
   GetBooksByQueryParam,
   GetBooksByQueryParamResponse,
@@ -29,6 +32,16 @@ export const getRecommendedBooks = async (data: GetRecommendedBooksParam) => {
 export const getBookDetails = async (data: { id: number }) => {
   const response = await api.get<ApiResponse<GetBookDetailsResponse>>(
     '/api/books/' + data.id
+  );
+
+  return response.data.data;
+};
+
+export const borrowBook = async (data: BorrowBookParams, token: string) => {
+  const response = await api.post<ApiResponse<BorrowBookResponse>>(
+    '/api/loans',
+    data,
+    { headers: { Authorization: 'Bearer ' + token } }
   );
 
   return response.data.data;

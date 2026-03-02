@@ -7,12 +7,24 @@ import { ReviewCard } from '@/components/containers/reviewCard';
 import { Separator } from '@/components/ui/separator';
 import { Spinner } from '@/components/ui/spinner';
 import { useGetBookDetails } from '@/services/hooks/books';
+import { useAppSelector } from '@/services/stores/store';
 import { ChevronRight, Star } from 'lucide-react';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
+import React from 'react';
+import { FloatingBorrowButton } from './floatingBorrowButton';
+import Link from 'next/link';
 
 export const DetailsContent = () => {
   const { id } = useParams<{ id: string }>();
   const { data, isPending, isError } = useGetBookDetails({ id: +id });
+
+  const user = useAppSelector((state) => state.user);
+  const router = useRouter();
+  React.useEffect(() => {
+    if (!user.id) {
+      router.push('/auth');
+    }
+  }, [user]);
   return (
     <main className='flex-center flex-col gap-6 px-4 sm:gap-7 md:gap-8 lg:gap-10 xl:gap-12 xl:px-30'>
       {/* Book Details */}
@@ -24,13 +36,19 @@ export const DetailsContent = () => {
         <>
           <div className='mt-20 flex flex-col items-center justify-between gap-4 sm:mt-32'>
             <div className='flex w-full items-center justify-start gap-1'>
-              <span className='text-primary-300 text-sm font-semibold tracking-[0.02rem]'>
+              <Link
+                href='/'
+                className='text-primary-300 text-sm font-semibold tracking-[0.02rem]'
+              >
                 Home
-              </span>
+              </Link>
               <ChevronRight size={16} />
-              <span className='text-primary-300 text-sm font-semibold tracking-[0.02rem]'>
+              <Link
+                href='/categories'
+                className='text-primary-300 text-sm font-semibold tracking-[0.02rem]'
+              >
                 Category
-              </span>
+              </Link>
               <ChevronRight size={16} />
               <p className='text-sm font-semibold tracking-[0.02rem] text-neutral-950'>
                 {data.title}
@@ -38,6 +56,8 @@ export const DetailsContent = () => {
             </div>
 
             <BookDetailsCard
+              id={data.id}
+              availableCopies={data.availableCopies}
               coverImage={data.coverImage}
               category={data.category}
               title={data.title}
@@ -87,6 +107,8 @@ export const DetailsContent = () => {
             </h4>
             <RelatedBookList bookId={data.id} categoryId={data.categoryId} />
           </div>
+
+          <FloatingBorrowButton availableCopies={data.availableCopies} />
         </>
       )}
     </main>

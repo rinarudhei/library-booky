@@ -7,7 +7,6 @@ export default function Home() {
     <div className='flex-center flex-col'>
       <Navbar />
       <MainContent />
-      <FloatingBorrowButton />
       <Footer />
     </div>
   );

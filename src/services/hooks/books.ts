@@ -1,21 +1,34 @@
 import {
   keepPreviousData,
   useInfiniteQuery,
+  useMutation,
   useQuery,
 } from '@tanstack/react-query';
 import {
+  BorrowBookParams,
+  BorrowBookResponse,
   GetBookDetailsResponse,
   GetBooksByQueryParam,
   GetBooksByQueryParamResponse,
   GetRecommendBooksResponse,
   GetRecommendedBooksParam,
 } from '../types/books';
-import { Axios, AxiosError } from 'axios';
+import axios, { Axios, AxiosError } from 'axios';
 import {
+  borrowBook,
   getBookDetails,
   getBooksByQuery,
   getRecommendedBooks,
 } from '../api/books';
+import { setToken } from '@/app/auth/authSlice';
+import { setCurrentUser } from '@/app/auth/userSlice';
+import router from 'next/router';
+import { toast } from 'sonner';
+import { login } from '../api/auth';
+import { LoginApiParams, LoginResponse } from '../types/auth';
+import { useAppSelector } from '../stores/store';
+import { SetStateAction } from 'react';
+import { error } from 'console';
 
 export const useInfiniteRecommendedBooks = (
   params: GetRecommendedBooksParam
@@ -50,5 +63,28 @@ export const useGetBooksByQuery = (data: GetBooksByQueryParam) => {
     queryFn: () => getBooksByQuery(data),
     staleTime: 10 * 60 * 1000,
     placeholderData: keepPreviousData,
+  });
+};
+
+export const useBorrowBook = (
+  setSuccessState: React.Dispatch<SetStateAction<boolean>>
+) => {
+  const auth = useAppSelector((state) => state.auth);
+  return useMutation<
+    BorrowBookResponse,
+    AxiosError<{ message: string; success: boolean }>,
+    BorrowBookParams
+  >({
+    mutationFn: (body: BorrowBookParams) => borrowBook(body, auth.token),
+    onSuccess: (_) => {
+      setSuccessState(true);
+    },
+    onError: (e) => {
+      if (e.isAxiosError && e.code === AxiosError.ERR_BAD_REQUEST) {
+        toast.error('Failed: ' + e.response?.data.message);
+      } else {
+        toast.error('Failed: ' + e.message);
+      }
+    },
   });
 };
