@@ -210,14 +210,39 @@ export const Navbar = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align='end'>
                   <DropdownMenuGroup>
-                    <DropdownMenuLabel>Account</DropdownMenuLabel>
-                    <Separator></Separator>
-                  </DropdownMenuGroup>
-                  <DropdownMenuGroup>
                     <DropdownMenuItem asChild>
                       <Link
                         href='/auth'
-                        className='cursor-pointer hover:font-semibold'
+                        className='text-md cursor-pointer font-semibold tracking-[0.02rem] text-neutral-950'
+                        onClick={handleLogout}
+                      >
+                        Profile
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link
+                        href='/auth'
+                        className='text-md cursor-pointer font-semibold tracking-[0.02rem] text-neutral-950'
+                        onClick={handleLogout}
+                      >
+                        Borrowed List
+                      </Link>
+                    </DropdownMenuItem>
+
+                    <DropdownMenuItem asChild>
+                      <Link
+                        href='/auth'
+                        className='text-md cursor-pointer font-semibold tracking-[0.02rem] text-neutral-950'
+                        onClick={handleLogout}
+                      >
+                        Reviews
+                      </Link>
+                    </DropdownMenuItem>
+
+                    <DropdownMenuItem asChild>
+                      <Link
+                        href='/auth'
+                        className='text-md cursor-pointer font-semibold tracking-[0.02rem] text-[#ee1d52]'
                         onClick={handleLogout}
                       >
                         Logout
