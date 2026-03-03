@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const Footer = () => {
   return (
-    <footer className='flex-center mt-4 w-full flex-col gap-6 border-t border-t-neutral-300 bg-white px-4 py-10 sm:mt-16 sm:gap-7 sm:px-20 sm:py-16 md:mt-20 md:gap-8 lg:mt-24 lg:gap-9 lg:px-37.5 lg:py-20 xl:mt-29 xl:gap-10'>
+    <footer className='flex-center mt-4 max-h-96 w-full flex-col gap-6 border-t border-t-neutral-300 bg-white px-4 py-10 sm:mt-16 sm:gap-7 sm:px-20 sm:py-16 md:mt-20 md:gap-8 lg:mt-24 lg:gap-9 lg:px-37.5 lg:py-20 xl:mt-29 xl:gap-10'>
       <div className='flex flex-col items-center gap-4 sm:gap-4.5 lg:gap-5 xl:gap-5.5'>
         <Link
           href='/'

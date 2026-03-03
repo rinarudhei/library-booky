@@ -27,12 +27,11 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Separator } from '@/components/ui/separator';
 import { clearCurrentUser } from '../auth/userSlice';
 import { clearToken } from '../auth/authSlice';
+import { useRouter } from 'next/navigation';
 
 export const Navbar = () => {
   const [openSearchField, setOpenSearchField] = React.useState(false);
@@ -64,6 +63,13 @@ export const Navbar = () => {
   const handleLogout = () => {
     dispatch(clearCurrentUser());
     dispatch(clearToken());
+  };
+
+  const router = useRouter();
+  const handleSearchBook = (key: string) => {
+    if (key === 'Enter') {
+      router.push('/search/?q=' + searchText);
+    }
   };
 
   return (
@@ -121,6 +127,7 @@ export const Navbar = () => {
         ) : (
           <>
             <InputGroup
+              onKeyDown={(e) => handleSearchBook(e.key)}
               className={clsx(
                 'flex-center h-10 w-full max-w-66.25 gap-1.5 rounded-full border border-neutral-300 shadow-none md:h-11 md:max-w-100 lg:max-w-125',
                 !openSearchField && 'hidden'

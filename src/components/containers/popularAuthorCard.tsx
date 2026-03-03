@@ -18,8 +18,8 @@ export const PopularAuthorCard = ({
           {generateAvatarFallback(name)}
         </AvatarFallback>
       </Avatar>
-      <div className='flex flex-col items-start sm:gap-0.5'>
-        <div className='text-md font-bold -tracking-[0.02rem] text-neutral-900 sm:text-lg sm:-tracking-[0.03rem]'>
+      <div className='flex flex-col items-start overflow-x-hidden sm:gap-0.5'>
+        <div className='text-md font-bold -tracking-[0.02rem] text-nowrap text-neutral-900 sm:text-lg sm:-tracking-[0.03rem]'>
           {name}
         </div>
         <div className='flex-center gap-1.5'>
