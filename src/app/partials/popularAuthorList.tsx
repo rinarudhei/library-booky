@@ -22,6 +22,7 @@ export const PopularAuthorList = () => {
           {data.authors.map((a) => (
             <PopularAuthorCard
               key={a.id}
+              authorId={a.id}
               name={a.name}
               bookCount={a.bookCount}
             />

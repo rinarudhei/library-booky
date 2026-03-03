@@ -1,4 +1,4 @@
-import { Author } from './author';
+import { Pagination } from './pagination';
 
 export type GetRecommendedBooksParam = {
   by: string;
@@ -13,14 +13,7 @@ export type GetRecommendBooksResponse = {
   pagination: Pagination;
 };
 
-type Pagination = {
-  page: number;
-  limit: number;
-  total: number;
-  totalPages: number;
-};
-
-type Book = {
+export type Book = {
   id: number;
   title: string;
   description: string;
