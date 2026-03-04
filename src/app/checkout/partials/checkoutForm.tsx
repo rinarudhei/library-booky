@@ -11,7 +11,7 @@ import {
   InputGroupInput,
   InputGroupAddon,
 } from '@/components/ui/input-group';
-import { checkoutSchema } from '@/schemas/checkoutSchema';
+import { checkoutSchema } from '@/features/auth/schemas/checkoutSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import dayjs from 'dayjs';
 import { Calendar } from 'lucide-react';

@@ -1,6 +1,6 @@
 'use client';
 
-import { loginSchema } from '@/schemas/loginSchema';
+import { loginSchema } from '@/features/auth/schemas/loginSchema';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import z from 'zod';

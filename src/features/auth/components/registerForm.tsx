@@ -14,7 +14,7 @@ import {
   InputGroupAddon,
 } from '@/components/ui/input-group';
 import { Spinner } from '@/components/ui/spinner';
-import { registerSchema } from '@/schemas/registerSchema';
+import { registerSchema } from '@/features/auth/schemas/registerSchema';
 import { useRegister } from '@/features/auth/hooks/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff } from 'lucide-react';

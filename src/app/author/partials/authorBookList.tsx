@@ -1,6 +1,6 @@
 'use client';
 
-import { BookCard } from '@/components/containers/bookCard';
+import { BookCard } from '@/features/book/components/bookCard';
 import ErrorMessage from '@/components/containers/errorMessage';
 import { PopularAuthorCard } from '@/features/author/components/popularAuthorCard';
 import { Button } from '@/components/ui/button';

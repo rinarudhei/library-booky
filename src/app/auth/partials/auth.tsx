@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import { LoginForm } from './loginForm';
-import { RegisterForm } from './registerForm';
+import { LoginForm } from '../../../features/auth/components/loginForm';
+import { RegisterForm } from '../../../features/auth/components/registerForm';
 import Image from 'next/image';
 import clsx from 'clsx';
 import Link from 'next/link';

@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { Card } from '../ui/card';
+import { Card } from '@/components/ui/card';
 import Link from 'next/link';
-import { RatingStar } from './ratingStar';
+import { RatingStar } from '@/components/containers/ratingStar';
 import clsx from 'clsx';
 
 type BookCardProps = {
