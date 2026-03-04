@@ -1,11 +1,11 @@
-import { ApiResponse } from '../types/api';
+import { ApiResponse } from '../../../types/api';
 import {
   LoginApiParams,
   LoginResponse,
   RegisterApiParams,
   RegisterResponse,
 } from '../types/auth';
-import { api } from './api';
+import { api } from '../../../lib/api';
 
 export const login = async (data: LoginApiParams) => {
   const response = await api.post<ApiResponse<LoginResponse>>(

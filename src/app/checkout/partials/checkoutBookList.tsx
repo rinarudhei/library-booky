@@ -1,6 +1,6 @@
 import ErrorMessage from '@/components/containers/errorMessage';
 import { Spinner } from '@/components/ui/spinner';
-import { useGetBookDetails } from '@/services/hooks/books';
+import { useGetBookDetails } from '@/features/book/hooks/books';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';

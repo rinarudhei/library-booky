@@ -23,7 +23,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
-import { useBorrowBook } from '@/services/hooks/books';
+import { useBorrowBook } from '@/features/book/hooks/books';
 import { useSearchParams } from 'next/navigation';
 import React from 'react';
 import {

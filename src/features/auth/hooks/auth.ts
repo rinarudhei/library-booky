@@ -6,11 +6,11 @@ import {
   RegisterResponse,
 } from '../types/auth';
 import { toast } from 'sonner';
-import { login, register } from '../api/auth';
+import { login, register } from '../services/auth';
 import { useRouter } from 'next/navigation';
-import { useAppDispatch } from '../stores/store';
-import { setToken } from '@/app/auth/authSlice';
-import { setCurrentUser } from '@/app/auth/userSlice';
+import { useAppDispatch } from '../../../stores/store';
+import { setToken } from '@/features/auth/slices/authSlice';
+import { setCurrentUser } from '@/features/auth/slices/userSlice';
 
 export const useRegister = (toggleIsLoginPage: () => void) => {
   return useMutation({

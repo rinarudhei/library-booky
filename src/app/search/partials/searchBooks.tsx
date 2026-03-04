@@ -1,8 +1,8 @@
 'use client';
-import { BookCard } from '@/components/containers/bookCard';
+import { BookCard } from '@/features/book/components/bookCard';
 import ErrorMessage from '@/components/containers/errorMessage';
 import { Spinner } from '@/components/ui/spinner';
-import { useGetBooksByQuery } from '@/services/hooks/books';
+import { useGetBooksByQuery } from '@/features/book/hooks/books';
 import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
 

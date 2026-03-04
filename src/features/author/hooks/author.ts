@@ -9,7 +9,7 @@ import {
   useInfiniteQuery,
   useQuery,
 } from '@tanstack/react-query';
-import { getAuthorBooks, getPopularAuthors } from '../api/author';
+import { getAuthorBooks, getPopularAuthors } from '../services/author';
 
 export const useGetPopularAuthors = (params: { limit: number }) => {
   return useQuery<GetPopularAuthorsResponse, AxiosError>({

@@ -1,7 +1,7 @@
 'use client';
 
 import { Separator } from '@/components/ui/separator';
-import { useAppSelector } from '@/services/stores/store';
+import { useAppSelector } from '@/stores/store';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { CheckoutBookList } from './checkoutBookList';

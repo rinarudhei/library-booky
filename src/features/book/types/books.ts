@@ -1,4 +1,4 @@
-import { Pagination } from './pagination';
+import { Pagination } from '../../../types/pagination';
 
 export type GetRecommendedBooksParam = {
   by: string;

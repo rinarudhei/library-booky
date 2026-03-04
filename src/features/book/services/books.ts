@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ApiResponse } from '../types/api';
+import { ApiResponse } from '../../../types/api';
 import {
   BorrowBookParams,
   BorrowBookResponse,
@@ -9,7 +9,7 @@ import {
   GetRecommendBooksResponse,
   GetRecommendedBooksParam,
 } from '../types/books';
-import { api } from './api';
+import { api } from '../../../lib/api';
 
 export const getBooksByQuery = async (data: GetBooksByQueryParam) => {
   const response = await api.get<ApiResponse<GetBooksByQueryParamResponse>>(

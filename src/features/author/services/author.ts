@@ -1,10 +1,10 @@
-import { ApiResponse } from '../types/api';
+import { ApiResponse } from '../../../types/api';
 import {
   GetAuthorDetailParams,
   GetAuthorDetailResponse,
   GetPopularAuthorsResponse,
 } from '../types/author';
-import { api } from './api';
+import { api } from '../../../lib/api';
 
 export const getPopularAuthors = async (data: { limit: number }) => {
   const response = await api.get<ApiResponse<GetPopularAuthorsResponse>>(

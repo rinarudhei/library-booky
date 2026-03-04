@@ -1,5 +1,5 @@
 'use client';
-import { AppStore, makeStore } from '@/services/stores/store';
+import { AppStore, makeStore } from '@/stores/store';
 import { useRef } from 'react';
 import { Provider } from 'react-redux';
 import { Persistor, persistStore } from 'redux-persist';

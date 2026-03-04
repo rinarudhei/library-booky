@@ -2,10 +2,10 @@
 
 import { BookCard } from '@/components/containers/bookCard';
 import ErrorMessage from '@/components/containers/errorMessage';
-import { PopularAuthorCard } from '@/components/containers/popularAuthorCard';
+import { PopularAuthorCard } from '@/features/author/components/popularAuthorCard';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
-import { useGetInfiniteAuthorBooks } from '@/services/hooks/author';
+import { useGetInfiniteAuthorBooks } from '@/features/author/hooks/author';
 import { isPending } from '@reduxjs/toolkit';
 import { useSearchParams } from 'next/navigation';
 import React from 'react';

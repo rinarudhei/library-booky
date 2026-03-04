@@ -19,16 +19,10 @@ import {
   getBookDetails,
   getBooksByQuery,
   getRecommendedBooks,
-} from '../api/books';
-import { setToken } from '@/app/auth/authSlice';
-import { setCurrentUser } from '@/app/auth/userSlice';
-import router from 'next/router';
+} from '../services/books';
 import { toast } from 'sonner';
-import { login } from '../api/auth';
-import { LoginApiParams, LoginResponse } from '../types/auth';
-import { useAppSelector } from '../stores/store';
+import { useAppSelector } from '../../../stores/store';
 import { SetStateAction } from 'react';
-import { error } from 'console';
 
 export const useInfiniteRecommendedBooks = (
   params: GetRecommendedBooksParam

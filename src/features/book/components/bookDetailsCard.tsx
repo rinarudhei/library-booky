@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import { Separator } from '../ui/separator';
+import { Separator } from '../../../components/ui/separator';
 import { Star } from 'lucide-react';
-import { Button } from '../ui/button';
+import { Button } from '../../../components/ui/button';
 import Link from 'next/link';
-import { id } from 'zod/locales';
 
 type BookDetailsCardProps = {
   id: number;

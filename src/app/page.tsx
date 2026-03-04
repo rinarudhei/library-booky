@@ -1,6 +1,6 @@
-import { Footer } from './partials/footer';
+import { Footer } from '../components/containers/footer';
 import { MainContent } from './partials/mainContent';
-import { Navbar } from './partials/navbar';
+import { Navbar } from '../components/containers/navbar';
 
 export default function Home() {
   return (

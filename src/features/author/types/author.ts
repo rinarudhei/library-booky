@@ -1,5 +1,5 @@
-import { Book } from './books';
-import { Pagination } from './pagination';
+import { Book } from '../../book/types/books';
+import { Pagination } from '../../../types/pagination';
 
 export type GetPopularAuthorsResponse = {
   authors: Author[];

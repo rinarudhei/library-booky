@@ -1,13 +1,13 @@
 'use client';
 
 import { RelatedBookList } from '@/app/partials/relatedBookList';
-import { BookDetailsCard } from '@/components/containers/bookDetailsCard';
+import { BookDetailsCard } from '@/features/book/components/bookDetailsCard';
 import ErrorMessage from '@/components/containers/errorMessage';
 import { ReviewCard } from '@/components/containers/reviewCard';
 import { Separator } from '@/components/ui/separator';
 import { Spinner } from '@/components/ui/spinner';
-import { useGetBookDetails } from '@/services/hooks/books';
-import { useAppSelector } from '@/services/stores/store';
+import { useGetBookDetails } from '@/features/book/hooks/books';
+import { useAppSelector } from '@/stores/store';
 import { ChevronRight, Star } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 import React from 'react';

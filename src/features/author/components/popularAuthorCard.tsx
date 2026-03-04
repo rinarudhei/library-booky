@@ -1,7 +1,7 @@
 import { generateAvatarFallback } from '@/lib/utils';
-import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar';
+import { Avatar, AvatarFallback } from '../../../components/ui/avatar';
 import Image from 'next/image';
-import { Card } from '../ui/card';
+import { Card } from '../../../components/ui/card';
 import Link from 'next/link';
 import clsx from 'clsx';
 

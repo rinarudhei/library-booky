@@ -14,7 +14,7 @@ import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Spinner } from '@/components/ui/spinner';
 import { categories } from '@/constant/categoriesData';
-import { useGetBooksByQuery } from '@/services/hooks/books';
+import { useGetBooksByQuery } from '@/features/book/hooks/books';
 import clsx from 'clsx';
 import { ListFilter, Star } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';

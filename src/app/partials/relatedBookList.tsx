@@ -1,10 +1,10 @@
 'use client';
 
-import { useGetBooksByQuery } from '@/services/hooks/books';
-import { BookCard } from '../../components/containers/bookCard';
+import { useGetBooksByQuery } from '@/features/book/hooks/books';
+import { BookCard } from '@/features/book/components/bookCard';
 import { Spinner } from '../../components/ui/spinner';
 import ErrorMessage from '../../components/containers/errorMessage';
-import { useAppSelector } from '@/services/stores/store';
+import { useAppSelector } from '@/stores/store';
 
 type RelatedBookList = {
   categoryId: number;

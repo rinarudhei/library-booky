@@ -19,7 +19,7 @@ import {
 import { Eye, EyeOff } from 'lucide-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
-import { useLogin } from '@/services/hooks/auth';
+import { useLogin } from '@/features/auth/hooks/auth';
 import { Spinner } from '@/components/ui/spinner';
 
 type LoginFormProps = {

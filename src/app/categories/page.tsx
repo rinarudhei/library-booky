@@ -1,5 +1,5 @@
-import { Footer } from '../partials/footer';
-import { Navbar } from '../partials/navbar';
+import { Footer } from '../../components/containers/footer';
+import { Navbar } from '../../components/containers/navbar';
 import { CategoryBook } from './partials/categoryBook';
 
 export default function Categories() {

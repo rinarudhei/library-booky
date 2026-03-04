@@ -1,7 +1,7 @@
 'use client';
 
-import { useInfiniteRecommendedBooks } from '@/services/hooks/books';
-import { BookCard } from '../../components/containers/bookCard';
+import { useInfiniteRecommendedBooks } from '@/features/book/hooks/books';
+import { BookCard } from '@/features/book/components/bookCard';
 import React from 'react';
 import { Spinner } from '../../components/ui/spinner';
 import ErrorMessage from '../../components/containers/errorMessage';

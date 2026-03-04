@@ -12,7 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import useMedia from 'use-media';
 import Link from 'next/link';
-import { useAppDispatch, useAppSelector } from '@/services/stores/store';
+import { useAppDispatch, useAppSelector } from '@/stores/store';
 import {
   Dialog,
   DialogClose,
@@ -29,8 +29,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { clearCurrentUser } from '../auth/userSlice';
-import { clearToken } from '../auth/authSlice';
+import { clearCurrentUser } from '../../features/auth/slices/userSlice';
+import { clearToken } from '../../features/auth/slices/authSlice';
 import { useRouter } from 'next/navigation';
 
 export const Navbar = () => {

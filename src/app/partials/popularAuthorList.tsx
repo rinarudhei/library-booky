@@ -1,9 +1,9 @@
 'use client';
 
 import ErrorMessage from '@/components/containers/errorMessage';
-import { PopularAuthorCard } from '@/components/containers/popularAuthorCard';
+import { PopularAuthorCard } from '@/features/author/components/popularAuthorCard';
 import { Spinner } from '@/components/ui/spinner';
-import { useGetPopularAuthors } from '@/services/hooks/author';
+import { useGetPopularAuthors } from '@/features/author/hooks/author';
 
 export const PopularAuthorList = () => {
   const { data, isPending, isError, error } = useGetPopularAuthors({
